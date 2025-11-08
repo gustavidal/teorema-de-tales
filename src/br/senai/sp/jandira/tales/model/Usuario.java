@@ -142,14 +142,11 @@ public class Usuario {
         double razaoAB = segA / segB;
         double razaoCD = segC / segD;
 
-        String razaoABForm = String.format("%.2f", razaoAB);
-        String razaoCDForm = String.format("%.2f", razaoCD);
-
-        System.out.println("Razão de A e B: " + razaoABForm);
-        System.out.println("Razão de C e D: " + razaoCDForm);
+        System.out.printf("Razão de A e B: %.4f%n", razaoAB);
+        System.out.printf("Razão de C e D: %.4f%n", razaoCD);
         System.out.println("");
 
-        if (razaoABForm.equals(razaoCDForm)){
+        if (Math.abs(razaoAB - razaoCD) < 0.0001 ){
             System.out.println("Os segmentos são proporcionais - valores válidos!");
         } else {
             System.out.println("Os segmentos NÃO são proporcionais - valores inválidos!");
