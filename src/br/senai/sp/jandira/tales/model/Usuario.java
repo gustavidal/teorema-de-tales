@@ -8,6 +8,9 @@ public class Usuario {
     double segB;
     double segC;
     double segD;
+    double razaoAB;
+    double razaoCD;
+    String proporcao;
 
     Scanner leitor = new Scanner(System.in);
 
@@ -39,7 +42,7 @@ public class Usuario {
         System.out.println("[2] B");
         System.out.println("[3] C");
         System.out.println("[4] D");
-        System.out.print("Você quer descobrir o valor de qual segmento acima? ");
+        System.out.print("Você quer descobrir o valor de qual segmento acima (Permitido somente 1 opção)? ");
         segmento = leitor.nextInt();
 
         System.out.println("");
@@ -55,6 +58,7 @@ public class Usuario {
             System.out.print("Informe o valor de D: ");
             segD = leitor.nextDouble();
 
+            segA = (segB * segC) / segD;
         } else if (segmento == 2){
             System.out.println("Vamos descobrir o valor do segmento B!");
             System.out.print("Informe o valor de A: ");
@@ -66,6 +70,7 @@ public class Usuario {
             System.out.print("Informe o valor de D: ");
             segD = leitor.nextDouble();
 
+            segB = (segA * segD) / segC;
         } else if (segmento == 3){
             System.out.println("Vamos descobrir o valor do segmento C!");
             System.out.print("Informe o valor de A: ");
@@ -77,6 +82,7 @@ public class Usuario {
             System.out.print("Informe o valor de D: ");
             segD = leitor.nextDouble();
 
+            segC = (segA * segD) / segB;
         } else if (segmento == 4){
             System.out.println("Vamos descobrir o valor do segmento D!");
             System.out.print("Informe o valor de A: ");
@@ -88,6 +94,7 @@ public class Usuario {
             System.out.print("Informe o valor de C: ");
             segC = leitor.nextDouble();
 
+            segD = (segB * segC) / segA;
         } else {
             System.out.println("Segmento inexistente!");
         }
@@ -107,5 +114,30 @@ public class Usuario {
         System.out.print("Informe o valor do segmento D: ");
         segD = leitor.nextDouble();
 
+        System.out.println("");
+
+        if (segA == 0 || segB == 0 || segC == 0 || segD == 0){
+            definirSegmento();
+        } else {
+            calcularRazoes();
+        }
+    }
+
+    public void calcularRazoes(){
+        razaoAB = segA / segB;
+        razaoCD = segC / segD;
+
+        String razaoABForm = String.format("%.2f", razaoAB);
+        String razaoCDForm = String.format("%.2f", razaoCD);
+
+        System.out.println("Razão de A e B: " + razaoABForm);
+        System.out.println("Razão de C e D: " + razaoCDForm);
+        System.out.println("");
+
+        if (razaoABForm.equals(razaoCDForm)){
+            System.out.println("Os segmentos são proporcionais - valores válidos!");
+        } else {
+            System.out.println("Os segmentos NÃO são proporcionais - valores inválidos!");
+        }
     }
 }
