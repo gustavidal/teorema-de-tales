@@ -109,6 +109,9 @@ public class Usuario {
         } else {
             System.out.println("Segmento inexistente!");
         }
+
+        System.out.println("");
+        System.out.println("Obrigado por usar a Calculadora de Tales!");
     }
 
     public void verificarProporcao(){
@@ -151,5 +154,8 @@ public class Usuario {
         } else {
             System.out.println("Os segmentos NÃO são proporcionais - valores inválidos!");
         }
+
+        System.out.println("");
+        System.out.println("Obrigado por usar a Calculadora de Tales!");
     }
 }
