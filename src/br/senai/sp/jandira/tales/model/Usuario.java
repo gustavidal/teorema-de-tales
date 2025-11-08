@@ -8,14 +8,13 @@ public class Usuario {
     double segB;
     double segC;
     double segD;
-    double razaoAB;
-    double razaoCD;
-    String proporcao;
 
     Scanner leitor = new Scanner(System.in);
 
     public void receberDecisao(){
         int decisao;
+
+        System.out.println("");
 
         System.out.println("Vamos calcular razões!");
         System.out.println("Sabendo da fórmula do Teorema de Tales (A/B = C/D), escolha uma:");
@@ -59,6 +58,9 @@ public class Usuario {
             segD = leitor.nextDouble();
 
             segA = (segB * segC) / segD;
+
+            System.out.println("");
+            System.out.println("O valor do segmento A é " + segA);
         } else if (segmento == 2){
             System.out.println("Vamos descobrir o valor do segmento B!");
             System.out.print("Informe o valor de A: ");
@@ -71,6 +73,9 @@ public class Usuario {
             segD = leitor.nextDouble();
 
             segB = (segA * segD) / segC;
+
+            System.out.println("");
+            System.out.println("O valor do segmento B é " + segB);
         } else if (segmento == 3){
             System.out.println("Vamos descobrir o valor do segmento C!");
             System.out.print("Informe o valor de A: ");
@@ -83,6 +88,9 @@ public class Usuario {
             segD = leitor.nextDouble();
 
             segC = (segA * segD) / segB;
+
+            System.out.println("");
+            System.out.println("O valor do segmento C é " + segC);
         } else if (segmento == 4){
             System.out.println("Vamos descobrir o valor do segmento D!");
             System.out.print("Informe o valor de A: ");
@@ -95,6 +103,9 @@ public class Usuario {
             segC = leitor.nextDouble();
 
             segD = (segB * segC) / segA;
+
+            System.out.println("");
+            System.out.println("O valor do segmento D é " + segD);
         } else {
             System.out.println("Segmento inexistente!");
         }
@@ -117,6 +128,10 @@ public class Usuario {
         System.out.println("");
 
         if (segA == 0 || segB == 0 || segC == 0 || segD == 0){
+            System.out.println("Você definiu um segmento como 0.");
+            System.out.println("Você será redirecionado para descobrir o valor de um segmento...");
+            System.out.println("");
+
             definirSegmento();
         } else {
             calcularRazoes();
@@ -124,8 +139,8 @@ public class Usuario {
     }
 
     public void calcularRazoes(){
-        razaoAB = segA / segB;
-        razaoCD = segC / segD;
+        double razaoAB = segA / segB;
+        double razaoCD = segC / segD;
 
         String razaoABForm = String.format("%.2f", razaoAB);
         String razaoCDForm = String.format("%.2f", razaoCD);

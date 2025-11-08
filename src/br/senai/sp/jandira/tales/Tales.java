@@ -5,7 +5,6 @@ import br.senai.sp.jandira.tales.model.Usuario;
 public class Tales {
     public static void main(String[] args) {
         System.out.println("Iniciando a calculadora...");
-        System.out.println("");
 
         Usuario usuario = new Usuario();
 
